@@ -20,9 +20,9 @@ public interface _UsersDAO
   int remove(@Bind("key") Long user_id);
   
   @GetGeneratedKeys
-  @SqlUpdate("insert into user_info_mst ( user_id ,  first_name ,  last_name ,  email_id ,  mobile_no ,  address ,  location_id ,  date_of_birth ,  updated_on ,  created_on) values ( :user_id ,  :first_name ,  :last_name ,  :email_id ,  :mobile_no ,  :Address ,  :location_id ,  :date_of_birth ,  :updated_on ,  :created_on)")
+  @SqlUpdate("insert into user_info_mst ( user_id ,  first_name ,  last_name ,  email_id ,  mobile_no ,  address ,  location_id ,  date_of_birth ,  updated_on ,  created_on) values ( :user_id ,  :first_name ,  :last_name ,  :email_id ,  :mobile_no ,  :address ,  :location_id ,  :date_of_birth ,  :updated_on ,  :created_on)")
   long insert(@BindBean Users obj);
 
-  @SqlUpdate("update user_info_mst set  first_name = :first_name ,  last_name = :last_name ,  email_id = :email_id ,  mobile_no = :mobile_no ,  address = :Address ,  location_id = :location_id ,  date_of_birth = :date_of_birth ,  updated_on = :updated_on ,  created_on = :created_on where user_id = :user_id")
+  @SqlUpdate("update user_info_mst set  first_name = :first_name ,  last_name = :last_name ,  email_id = :email_id ,  mobile_no = :mobile_no ,  address = :address ,  location_id = :location_id ,  date_of_birth = :date_of_birth ,  updated_on = :updated_on ,  created_on = :created_on where user_id = :user_id")
   int update(@BindBean Users obj);
 }

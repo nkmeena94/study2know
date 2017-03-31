@@ -32,8 +32,17 @@ public class Users {
     @Timed
     @ExceptionMetered
     @Path("/getuserdetail/{user_id}")
-    @ApiOperation(value = "Loads all the books Details")
+    @ApiOperation(value = "Get User Detail")
     public com.study2know.core.entity.Users getUserDetail(@PathParam("user_id") Long user_id) throws ParseException {
        return users.getUserDetail(user_id);
+    }
+
+    @GET
+    @Timed
+    @ExceptionMetered
+    @Path("/createnewUser/{userdetail}")
+    @ApiOperation(value = "Create New User")
+    public int createNewUser(@PathParam("userdetail") String userdeatil) throws ParseException {
+        return users.createNewUser(userdeatil);
     }
 }
