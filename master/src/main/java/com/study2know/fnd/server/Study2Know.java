@@ -4,6 +4,7 @@ import com.bendb.dropwizard.redis.JedisBundle;
 import com.codahale.metrics.MetricRegistry;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import com.study2know.modules.resources.Users;
 import io.dropwizard.Application;
 import io.dropwizard.db.DataSourceFactory;
 import io.dropwizard.jdbi.DBIFactory;
@@ -32,8 +33,6 @@ public class Study2Know extends Application<AppConfiguration> {
     public static int getPort() {
         return port;
     }
-
-
 
     public static boolean isProduction() {
         return isProduction;
@@ -78,7 +77,7 @@ public class Study2Know extends Application<AppConfiguration> {
     public void run(AppConfiguration configuration, Environment environment) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         DBI dbi = new DBIFactory().build(environment, configuration.getDataSourceFactory(), "mysql");
         Injector injector = createInjector(configuration, environment, dbi);
-
+        environment.jersey().register(injector.getInstance(Users.class));
 //        NewRelicReporter reporter = NewRelicReporter.forRegistry(metricRegistry)
 //                .name("new relic reporter")
 //                .filter(MetricFilter.ALL)

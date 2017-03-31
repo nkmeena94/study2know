@@ -2,6 +2,8 @@ package com.study2know.fnd.server;
 
 import com.codahale.metrics.MetricRegistry;
 import com.google.inject.AbstractModule;
+import com.study2know.db.dao.LoginDAO;
+import com.study2know.db.dao.UsersDAO;
 import io.dropwizard.setup.Environment;
 import org.skife.jdbi.v2.DBI;
 
@@ -23,6 +25,7 @@ public class AppModule extends AbstractModule {
         bind(AppConfiguration.class).toInstance(configuration);
         bind(DBI.class).toInstance(dbi);
         bind(MetricRegistry.class).toInstance(new MetricRegistry());
-        //bind(TestDAO.class).toInstance(dbi.onDemand(TestDAO.class));
+        bind(UsersDAO.class).toInstance(dbi.onDemand(UsersDAO.class));
+        bind(LoginDAO.class).toInstance(dbi.onDemand(LoginDAO.class));
     }
 }
