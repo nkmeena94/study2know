@@ -1,0 +1,5 @@
+rootProject.name = 'study2know'
+rootProject.name = 'study2know'
+include 'core'
+include 'master'
+

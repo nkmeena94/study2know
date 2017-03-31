@@ -1,0 +1,87 @@
+//group 'com.study2know'
+//
+//apply plugin: 'java'
+//
+//sourceCompatibility = 1.5
+//
+//repositories {
+//    mavenCentral()
+//}
+//
+//dependencies {
+//    testCompile group: 'junit', name: 'junit', version: '4.11'
+//}
+//group 'com.study2konw'
+//version '1.0-SNAPSHOT'
+//
+//apply plugin: 'java'
+//
+//sourceCompatibility = 1.5
+//
+//repositories {
+//    mavenCentral()
+//}
+//
+//dependencies {
+//    testCompile group: 'junit', name: 'junit', version: '4.11'
+//}
+
+ext {
+    project_version = '1-SNAPSHOT'
+    dw_version = '0.9.1'
+}
+
+allprojects {
+
+    apply plugin: 'java'
+    apply plugin: 'maven'
+    apply plugin: 'idea'
+    //apply plugin: 'findbugs'
+    //apply plugin: 'pmd'
+    //apply plugin: 'jacoco'
+    //apply plugin: 'jdepend'
+
+    compileJava  {
+        options.fork = true
+        options.encoding = 'utf-8'
+        options.compilerArgs = ['-Xlint:unchecked', '-Xlint:deprecation', '-g']
+    }
+
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        jcenter()
+    }
+
+    sourceSets {
+        main {
+            java {
+                srcDir 'src/main/java'
+            }
+            resources {
+                srcDir 'src/main/resources'
+            }
+        }
+        test {
+            java {
+                srcDir 'src/test/java'
+            }
+            resources {
+                srcDir 'src/main/resources'
+                srcDir 'src/test/resources'
+            }
+        }
+    }
+
+    dependencies {
+        testCompile(
+                'junit:junit:4.11',
+                'info.cukes:cucumber-core:1.2.0',
+                'info.cukes:cucumber-java:1.2.0',
+                'info.cukes:cucumber-junit:1.2.0'
+        )
+    }
+    group = 'xeno'
+    version = "$project_version"
+}
+

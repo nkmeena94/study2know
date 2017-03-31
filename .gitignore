@@ -1,0 +1,36 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea/
+*.iml
+out
+gen
+.gradle/
+build/
+gradlew
+gradlew.bat
+logs/
+
+#master/.gradle/
+#master/.idea/
+#master/build/
+#master/master.iml
+#bin/gen/configlist
+#master/src/main/resources/migrations/db.changelog-1.0.sql.gen
+#core/build
+#core/core.iml
+#voiced.iml
+#db/gen/
+#remove
+#build
+#XENO-master.iml
+#apps/android/XENO/app/*.iml
+#apps/android/android.iml
+#apps/apps.iml
+#apps/android/XENO/libraryFloatAction/libraryFloatAction.iml
+#local.properties
+#master/logs/
+
+
